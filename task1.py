@@ -9,10 +9,14 @@ def total_salary(path):
             line = file.readline().strip()
             if not line:
                 break
-            total_salary = total_salary + int(line[line.index(',') + 1::])
+            total_salary = total_salary + float(line[line.index(',') + 1::])
             count = count + 1
-        result = (total_salary, int(total_salary/3))
-    return result
+        if (count != 0):
+            result = (total_salary, total_salary/count)
+            return result
+        else:
+            print("Number of developers is 0")
+            return (0, 0)
 
 path = 'salaries.txt'
 
